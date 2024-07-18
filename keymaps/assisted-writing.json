@@ -1,5 +1,5 @@
 {
-  "atom-workspace": {
-    "alt-enter": "assisted-writing:run"
+  "atom-text-editor": {
+    "ctrl-alt-enter": "assisted-writing:run"
   }
 }
