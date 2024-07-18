@@ -1,0 +1,25 @@
+{
+  "name": "assisted-writing",
+  "main": "./lib/assisted-writing",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "assisted-writing:run"
+  },
+  "repository": "https://github.com/keyasuda/assisted-writing",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "tiktoken": "*"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  }
+}

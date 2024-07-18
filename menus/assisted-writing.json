@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Run Assisted Writing",
+        "command": "assisted-writing:run"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "assisted-writing",
+          "submenu": [
+            {
+              "label": "Run",
+              "command": "assisted-writing:run"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
