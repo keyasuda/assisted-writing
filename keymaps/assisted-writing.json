@@ -1,5 +1,6 @@
 {
   "atom-text-editor": {
-    "ctrl-alt-enter": "assisted-writing:run"
+    "ctrl-alt-enter": "assisted-writing:run",
+    "escape": "assisted-writing:abort"
   }
 }
