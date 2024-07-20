@@ -2,7 +2,7 @@
   "atom-text-editor": {
     "ctrl-alt-enter": "assisted-writing:run"
   },
-  "atom-workspace.assisted-writing-running": {
+  "atom-text-editor.assisted-writing-running": {
     "escape": "assisted-writing:abort"
   }
 }
