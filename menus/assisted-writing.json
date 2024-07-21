@@ -12,7 +12,7 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "assisted-writing",
+          "label": "Assisted Writing",
           "submenu": [
             {
               "label": "Run",
