@@ -1,8 +1,8 @@
 {
   "name": "assisted-writing",
   "main": "./lib/assisted-writing",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.0.1",
+  "description": "This package empowers you with in-editor text completion capabilities, leveraging either the llama.cpp or text-generation webui.",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": "assisted-writing:run"
@@ -23,7 +23,7 @@
     },
     "busy-signal": {
       "versions": {
-        "1.0.0": "consumeSignal"
+        "^1.0.0": "consumeSignal"
       }
     }
   }
