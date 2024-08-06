@@ -1,8 +1,8 @@
 {
   "name": "assisted-writing",
   "main": "./lib/assisted-writing",
-  "version": "0.0.1",
-  "description": "This package empowers you with in-editor text completion capabilities, leveraging either the llama.cpp or text-generation webui.",
+  "version": "0.0.2",
+  "description": "This package empowers you with in-editor text completion capabilities, leveraging the power of local Large Language Models (LLMs) through either llama.cpp or text-generation webui, or the cloud-based Google AI Studio Gemini API.",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": "assisted-writing:run"
@@ -13,7 +13,8 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "tiktoken": "*"
+    "tiktoken": "*",
+    "@google/generative-ai": "*"
   },
   "consumedServices": {
     "status-bar": {

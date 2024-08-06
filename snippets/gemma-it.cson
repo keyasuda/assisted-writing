@@ -1,0 +1,9 @@
+'*':
+  'instruction template (Gemma)':
+    'prefix': 'gemmait'
+    'body': """
+    <end_of_turn><start_of_turn>user
+    ${1:prompt}
+    <end_of_turn><start_of_turn>model
+
+    """
