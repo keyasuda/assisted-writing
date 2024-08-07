@@ -8,7 +8,7 @@ This package empowers you with in-editor text completion capabilities, leveragin
 
 - **In-Editor Text Completion:** Leverage the power of your preferred LLMs, including Google AI Studio Gemini, for text generation directly within your editor.
 - **Multiple LLM Support:** Choose between local LLMs (with llama.cpp or text-generation webui) or the cloud-based Google AI Studio Gemini.
-- **Token Counter:** Stay informed about your text's token count, displayed conveniently on the statusbar. The counter utilizes the GPT-4o tokenizer for measurements.
+- **Token Counter:** Stay informed about your text's token count, displayed conveniently on the statusbar. The counter now supports the built-in GPT-4o tokenizer and can also utilize the llama-server API for tokenization, providing flexibility and potential performance benefits.
 
 **Getting Started:**
 
