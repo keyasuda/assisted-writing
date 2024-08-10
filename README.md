@@ -34,4 +34,3 @@ This package empowers you with in-editor text completion capabilities, leveragin
 
 1.  **Create API key:** Create an API Key on [Google AI Studio](https://aistudio.google.com/app/apikey).
 2.  **Configure the Plugin:** In the Assisted Writing package settings, select "Google AI Studio Gemini API" as the "Mode" and enter your API Key.
-3.  **Format the Prompt:** When using the Gemini API, your prompt needs to be formatted according to the Gemma format. This package will automatically format your prompt for Gemini based on this format. You can find the details of the Gemma prompt formatting at [Gemma formatting and system instructions](https://ai.google.dev/gemma/docs/formatting). This ensures compatibility and optimal performance with the Gemini API.
