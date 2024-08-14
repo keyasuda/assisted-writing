@@ -23,14 +23,15 @@ This package empowers you with in-editor text completion capabilities, leveragin
 
 **Settings:**
 
-- **Backend:** Select your preferred LLM backend (llama-server, text-generation webui, or Google AI Studio Gemini API).
-- **Endpoint:** Define the URI of your chosen API endpoint.
-- **Params:** Customize API parameters to fine-tune the text generation behavior according to your requirements.
-- **Google AI Studio Gemini Settings:**
+- **Local LLM Settings:**
+  - **Enable:** When enable you can use local LLM
+  - **Endpoint:** Define the URI of your chosen API endpoint.
+  - **Params:** Customize API parameters to fine-tune the text generation behavior according to your requirements.
+- **Google AI Studio Gemini API Settings:**
+  - **Enable:** When enable you can use Google AI Studio Gemini API
   - **API Key:** Your Google AI Studio API Key.
   - **Model Name:** Your preferred Gemini model name (Flash, Pro or Pro experimental).
-
-**Using Google AI Studio Gemini:**
-
-1.  **Create API key:** Create an API Key on [Google AI Studio](https://aistudio.google.com/app/apikey).
-2.  **Configure the Plugin:** In the Assisted Writing package settings, select "Google AI Studio Gemini API" as the "Mode" and enter your API Key.
+  - **Blocked words:** When these words are included in the prompt, the package won't call the API.
+- **Token Counter Settings:**
+  - **Tokenizer:** Tokenizer to use for the counter.
+  - **Endpoint:** Define the URI of your chosen API endpoint.

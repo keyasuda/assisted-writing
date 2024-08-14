@@ -17,6 +17,14 @@
             {
               "label": "Run",
               "command": "assisted-writing:run"
+            },
+            {
+              "label": "use local LLM",
+              "command": "assisted-writing:use-local"
+            },
+            {
+              "label": "use Google AI Studio Gemini API",
+              "command": "assisted-writing:use-gemini"
             }
           ]
         }
