@@ -1,3 +1,7 @@
+## 0.0.5 - Refactored multiple LLM support
+
+- LLM switcher added on the statusbar
+
 ## 0.0.4 - Refactored Gemini support
 
 - abolished Gemma instruction template parsing when the backend is Gemini API
