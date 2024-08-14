@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pulsar
+        run: |
+          sudo apt install -y libnotify4 xvfb
+          wget https://github.com/pulsar-edit/pulsar/releases/download/v1.119.0/Linux.pulsar_1.119.0_amd64.deb
+          sudo dpkg -i Linux.pulsar_1.119.0_amd64.deb
+      - name: Install dependencies
+        run: ppm i
+      - name: Run tests
+        run: xvfb-run -a ppm test
