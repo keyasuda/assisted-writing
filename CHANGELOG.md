@@ -1,3 +1,7 @@
+## 0.0.6 - Published to the Pulsar Package Repository
+
+- no code modifications
+
 ## 0.0.5 - Refactored multiple LLM support
 
 - LLM switcher added on the statusbar
