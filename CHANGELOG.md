@@ -1,3 +1,7 @@
+## 0.0.7 - Add Gemini experimental models
+
+- add gemini-1.5-pro-exp-0827, gemini-1.5-flash-exp-0827 and gemini-1.5-flash-8b-exp-0827
+
 ## 0.0.6 - Published to the Pulsar Package Repository
 
 - no code modifications
