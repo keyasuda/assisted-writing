@@ -1,3 +1,7 @@
+## 0.0.8 - Add Gemini 1.5 002 models
+
+- add gemini-1.5-pro-002 and gemini-1.5-flash-002
+
 ## 0.0.7 - Add Gemini experimental models
 
 - add gemini-1.5-pro-exp-0827, gemini-1.5-flash-exp-0827 and gemini-1.5-flash-8b-exp-0827
