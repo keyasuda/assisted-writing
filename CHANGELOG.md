@@ -1,3 +1,8 @@
+## 0.0.9 - Gemini models update
+
+- Add Gemini 2.0 Flash Experimental
+- Remove old Gemini models
+
 ## 0.0.8 - Add Gemini 1.5 002 models
 
 - add gemini-1.5-pro-002 and gemini-1.5-flash-002
