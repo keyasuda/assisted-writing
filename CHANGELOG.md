@@ -1,3 +1,7 @@
+## 0.0.10 - Flexible settings for Gemini models
+
+- Remove dropdown model selector: You can put model name directly into the setting. This enables you to use latest models without upgrading the package.
+
 ## 0.0.9 - Gemini models update
 
 - Add Gemini 2.0 Flash Experimental
