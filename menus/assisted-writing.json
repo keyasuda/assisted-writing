@@ -19,12 +19,16 @@
               "command": "assisted-writing:run"
             },
             {
-              "label": "use local LLM",
+              "label": "use llama.cpp / text-generation webui",
               "command": "assisted-writing:use-local"
             },
             {
               "label": "use Google AI Studio Gemini API",
               "command": "assisted-writing:use-gemini"
+            },
+            {
+              "label": "use Ollama",
+              "command": "assisted-writing:use-ollama"
             }
           ]
         }
