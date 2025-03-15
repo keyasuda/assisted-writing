@@ -14,9 +14,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup Pulsar
         run: |
-          sudo apt install -y libnotify4 xvfb libsecret-1-0
-          wget -q https://github.com/pulsar-edit/pulsar/releases/download/v1.123.0/Linux.pulsar_1.123.0_amd64.deb
-          sudo dpkg -i Linux.pulsar_1.123.0_amd64.deb
+          sudo apt install -y libnotify4 xvfb libsecret-1-0 xq
+          latest_version=$(curl https://github.com/pulsar-edit/pulsar/releases.atom | xq -x '//feed/entry/title' | head -n 1 | sed 's/^v//')
+          wget -q "https://github.com/pulsar-edit/pulsar/releases/download/v${latest_version}/Linux.pulsar_${latest_version}_amd64.deb"
+          sudo dpkg -i "Linux.pulsar_${latest_version}_amd64.deb"
       - name: Install dependencies
         run: ppm i
       - name: Run tests
