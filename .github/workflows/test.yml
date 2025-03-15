@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt install -y libnotify4 xvfb libsecret-1-0
           wget -q https://github.com/pulsar-edit/pulsar/releases/download/v1.126.0/Linux.pulsar_1.126.0_amd64.deb
-          sudo dpkg -i Linux.pulsar_1.123.0_amd64.deb
+          sudo dpkg -i Linux.pulsar_1.126.0_amd64.deb
       - name: Install dependencies
         run: ppm i
       - name: Run tests
