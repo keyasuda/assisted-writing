@@ -1,3 +1,7 @@
+## 0.0.12 - Ollama support enhancement
+
+- Now you can choose Ollama models on command palette (CTRL+SHIFT+P)
+
 ## 0.0.11 - Ollama support
 
 - Ollama support added

@@ -19,8 +19,9 @@ This package empowers you with in-editor text completion capabilities, leveragin
 2.  **Configure Settings:** Specify your API endpoint URI and other parameters within the package settings.
 3.  **Compose Your Prompt:** Type your desired text into the editor.
 4.  **Position Cursor:** Place the cursor at the point where you want the LLM to generate text.
-5.  **Trigger Completion:** Invoke text completion by pressing CTRL+ALT+ENTER or navigating to "Assisted Writing: run" in the Command palette.
-6.  **Abort Completion (Optional):** Press ESC to stop the generation process if needed.
+5.  **Choose the model (Ollama only):** Choose desired model by navigating to "Assisted Writing: Ollama \*" in the Command palette.
+6.  **Trigger Completion:** Invoke text completion by pressing CTRL+ALT+ENTER or navigating to "Assisted Writing: run" in the Command palette.
+7.  **Abort Completion (Optional):** Press ESC to stop the generation process if needed.
 
 **Settings:**
 
@@ -30,8 +31,7 @@ This package empowers you with in-editor text completion capabilities, leveragin
   - **Params:** Customize API parameters to fine-tune the text generation behavior according to your requirements.
 - **Ollama Settings:** <!-- Added Ollama settings section -->
   - **Enable:** Enable to use Ollama as the backend.
-  - **Endpoint:** The URL of your Ollama server (default: `http://localhost:11434/api/generate`).
-  - **Model:** The name of the Ollama model you want to use (e.g., `llama3`).
+  - **Endpoint:** The URL of your Ollama server (default: `http://localhost:11434`).
   - **Params:** Additional model parameters for Ollama (e.g., temperature, top_k, top_p).
 - **Google AI Studio Gemini API Settings:**
   - **Enable:** When enable you can use Google AI Studio Gemini API
