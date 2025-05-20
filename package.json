@@ -1,7 +1,7 @@
 {
   "name": "assisted-writing",
   "main": "./lib/assisted-writing",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "This package empowers you with in-editor text completion capabilities, leveraging the power of local Large Language Models (LLMs) through either llama.cpp or text-generation webui, or the cloud-based Google AI Studio Gemini API.",
   "keywords": [],
   "repository": "https://github.com/keyasuda/assisted-writing",
