@@ -7,10 +7,10 @@ describe('ConfigManager', () => {
   let configManager
   
   beforeEach(() => {
-    // Mock atom.config before creating ConfigManager
-    spyOn(atom.config, 'get').and.callFake((key) => {
-      
     configManager = new ConfigManager()
+
+    // Mock atom.config after creating ConfigManager
+    spyOn(atom.config, 'get').and.callFake((key) => {
       if (key === 'assisted-writing.local.enable') return true
       if (key === 'assisted-writing.local.endpoint') return 'http://localhost:8080'
       if (key === 'assisted-writing.local.params') return '{"temperature": 0.8}'

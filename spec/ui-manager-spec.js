@@ -19,16 +19,8 @@ describe('UIManager', () => {
     mockBackendModeView.serialize.and.returnValue({backendModeState: 'serialized'})
     
     // Mock constructors
-    const originalTokenCountView = window.TokenCountView
-    const originalBackendModeView = window.BackendModeView
-    window.TokenCountView = jasmine.createSpy('TokenCountView').and.returnValue(mockTokenCountView)
-    window.BackendModeView = jasmine.createSpy('BackendModeView').and.returnValue(mockBackendModeView)
-
-    // Restore original constructors after each test
-    afterEach(() => {
-      window.TokenCountView = originalTokenCountView
-      window.BackendModeView = originalBackendModeView
-    })
+    spyOn(global, 'TokenCountView').and.returnValue(mockTokenCountView)
+    spyOn(global, 'BackendModeView').and.returnValue(mockBackendModeView)
     
     // Create UIManager
     uiManager = new UIManager({
