@@ -1,6 +1,7 @@
 'use babel'
 
 import AssistedWriting from '../lib/assisted-writing'
+import BackendManager from '../lib/backend-manager'
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -13,28 +14,41 @@ describe('AssistedWriting', () => {
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace)
     activationPromise = atom.packages.activatePackage('assisted-writing')
+    
+    // Initialize backendManager for the main module
+    AssistedWriting.backendManager = new BackendManager()
   })
 
   describe('enabledBackends()', () => {
     it('returns an array of enabled backends', () => {
-      // local APIが有効、Gemini APIが無効の場合
+      // local API enabled, Gemini API disabled
       atom.config.set('assisted-writing.local.enable', true)
       atom.config.set('assisted-writing.gemini.enable', false)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.enabledBackends()).toEqual(['local'])
 
-      // local APIが無効、Gemini APIが有効の場合
+      // local API disabled, Gemini API enabled
       atom.config.set('assisted-writing.local.enable', false)
       atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.enabledBackends()).toEqual(['gemini'])
 
-      // local APIとGemini APIが両方有効の場合
+      // local API and Gemini API both enabled
       atom.config.set('assisted-writing.local.enable', true)
       atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.enabledBackends()).toEqual(['local', 'gemini'])
 
-      // local APIとGemini APIが両方無効の場合
+      // All backends enabled
+      atom.config.set('assisted-writing.local.enable', true)
+      atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', true)
+      expect(AssistedWriting.enabledBackends()).toEqual(['local', 'gemini', 'ollama'])
+
+      // All backends disabled
       atom.config.set('assisted-writing.local.enable', false)
       atom.config.set('assisted-writing.gemini.enable', false)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.enabledBackends()).toEqual([])
     })
   })
@@ -43,6 +57,7 @@ describe('AssistedWriting', () => {
     it('returns current backend if no backend is enabled', () => {
       atom.config.set('assisted-writing.local.enable', false)
       atom.config.set('assisted-writing.gemini.enable', false)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.flipBackend('local')).toEqual('local')
     })
 
@@ -50,19 +65,63 @@ describe('AssistedWriting', () => {
       // local API only enabled
       atom.config.set('assisted-writing.local.enable', true)
       atom.config.set('assisted-writing.gemini.enable', false)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.flipBackend('gemini')).toEqual('local')
 
       // gemini API only enabled
       atom.config.set('assisted-writing.local.enable', false)
       atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.flipBackend('local')).toEqual('gemini')
     })
 
-    it('returns the other enabled backend if two backends are enabled', () => {
+    it('returns the next enabled backend if multiple backends are enabled', () => {
+      // Both local and gemini enabled
       atom.config.set('assisted-writing.local.enable', true)
       atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', false)
       expect(AssistedWriting.flipBackend('local')).toEqual('gemini')
       expect(AssistedWriting.flipBackend('gemini')).toEqual('local')
+      
+      // All three backends enabled
+      atom.config.set('assisted-writing.local.enable', true)
+      atom.config.set('assisted-writing.gemini.enable', true)
+      atom.config.set('assisted-writing.ollama.enable', true)
+      expect(AssistedWriting.flipBackend('local')).toEqual('gemini')
+      expect(AssistedWriting.flipBackend('gemini')).toEqual('ollama')
+      expect(AssistedWriting.flipBackend('ollama')).toEqual('local')
+    })
+  })
+  
+  describe('setBackend()', () => {
+    beforeEach(() => {
+      // Create spy for UI manager
+      AssistedWriting.uiManager = {
+        updateBackendMode: jasmine.createSpy('updateBackendMode')
+      }
+    })
+    
+    it('sets the backend and updates UI', () => {
+      // Mock enabledBackends to return all backends as enabled
+      spyOn(AssistedWriting.backendManager, 'setBackend').and.returnValue(true)
+      spyOn(AssistedWriting.backendManager, 'getCurrentBackend').and.returnValue('gemini')
+      spyOn(AssistedWriting.backendManager, 'getCurrentOllamaModel').and.returnValue(null)
+      
+      AssistedWriting.setBackend('gemini')
+      
+      expect(AssistedWriting.backendManager.setBackend).toHaveBeenCalledWith('gemini', null)
+      expect(AssistedWriting.uiManager.updateBackendMode).toHaveBeenCalledWith('gemini', null)
+    })
+    
+    it('sets the backend with Ollama model', () => {
+      spyOn(AssistedWriting.backendManager, 'setBackend').and.returnValue(true)
+      spyOn(AssistedWriting.backendManager, 'getCurrentBackend').and.returnValue('ollama')
+      spyOn(AssistedWriting.backendManager, 'getCurrentOllamaModel').and.returnValue('llama3')
+      
+      AssistedWriting.setBackend('ollama', 'llama3')
+      
+      expect(AssistedWriting.backendManager.setBackend).toHaveBeenCalledWith('ollama', 'llama3')
+      expect(AssistedWriting.uiManager.updateBackendMode).toHaveBeenCalledWith('ollama', 'llama3')
     })
   })
 })
